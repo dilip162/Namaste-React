@@ -4,6 +4,8 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
+  const [filteredResList, setFilteredResList] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -18,11 +20,9 @@ const Body = () => {
     setRestaurantList(
       json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
     );
-
-    // console.log(
-    //   json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants[2]
-    //     .info
-    // );
+    setFilteredResList(
+      json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
+    );
   };
 
   if (restaurantList.length === 0) {
@@ -31,7 +31,7 @@ const Body = () => {
 
   return (
     <div className="body">
-      <div className="container">
+      <div className="filter container">
         <button
           className="btn"
           onClick={() => {
@@ -43,11 +43,34 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
+
+        <div className="search">
+          <input
+            type="text"
+            className="searchInput"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            placeholder="Enter cafe"
+          />
+          <button
+            className="btn"
+            onClick={() => {
+              const filterCafe = restaurantList.filter((cafe) =>
+                cafe.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredResList(filterCafe);
+            }}
+          >
+            search
+          </button>
+        </div>
       </div>
 
       <div className="res-container container">
-        {restaurantList.map((restaurant) => {
-          return <RestaurantCard resData={restaurant} />;
+        {filteredResList.map((restaurant) => {
+          return (
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          );
         })}
       </div>
     </div>
