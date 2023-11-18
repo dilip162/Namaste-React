@@ -86,6 +86,19 @@ html {
   margin-bottom: 0.6rem;
 }
 
+.cuisine {
+  font-size: 1.6rem;
+  color: rgb(62, 60, 60);
+}
+
+.rating {
+  font-size: 1.2rem;
+}
+
+.deliTime {
+  font-size: 1.4rem;
+}
+
 .btn {
   margin: 2rem 0;
   padding: 0.8rem 1.5rem;
@@ -99,4 +112,32 @@ html {
 
 .btn:active {
   transform: scale(0.97);
+}
+
+.btn_shadow {
+  margin: 2rem 0;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.7rem;
+  border: none;
+  background-color: rgba(222, 218, 218, 0.615);
+  color: transparent;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+
+.searchInput {
+  margin: 2rem 0;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.7rem;
+  border: 1px solid grey;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  width: 32rem;
+  outline: none;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
