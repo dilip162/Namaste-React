@@ -70,6 +70,7 @@ html {
 
   padding: 1rem;
   background-color: rgba(222, 218, 218, 0.615);
+
   cursor: pointer;
 
   transition: all 0.1s linear;
@@ -140,4 +141,21 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.menu {
+  margin: 6rem;
+}
+
+.menu h1 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.menu ul {
+  list-style: square;
+}
+
+.menu ul li {
+  font-size: 1.6rem;
 }
